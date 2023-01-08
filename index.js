@@ -7,8 +7,6 @@ const orders = require("./routes/orders");
 const stripe = require("./routes/stripe");
 const productsRoute = require("./routes/products");
 
-const products = require("./products");
-
 const app = express();
 
 require("dotenv").config();
