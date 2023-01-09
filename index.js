@@ -1,7 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const index = require('/routes/index')
+const index = require('./routes/index')
 
 const app = express();
 
@@ -17,15 +17,12 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/register", index);
+app.use("/api", index);
 
 app.get("/", (req, res) => {
   res.send("Welcome our to online shop API...");
 });
 
-app.get("/products", (req, res) => {
-  res.send(products);
-});
 
 const uri = process.env.DB_URI
 const port = process.env.PORT || 5000;

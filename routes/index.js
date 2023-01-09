@@ -1,14 +1,16 @@
 const express = require("express");
-const register = require("./routes/register");
-const login = require("./routes/login");
-const orders = require("./routes/orders");
-const stripe = require("./routes/stripe");
-const productsRoute = require("./routes/products");
+const register = require("./register");
+const login = require("./login");
+const orders = require("./orders");
+const stripe = require("./stripe");
+const productsRoute = require("./products");
 
 const app = express();
 
-app.use("/api/register", register);
-app.use("/api/login", login);
-app.use("/api/orders", orders);
-app.use("/api/stripe", stripe);
-app.use("/api/products", productsRoute);
+app.use("/register", register);
+app.use("/login", login);
+app.use("/orders", orders);
+app.use("/stripe", stripe);
+app.use("/products", productsRoute);
+
+module.exports = app
