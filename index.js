@@ -1,7 +1,11 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const index = require('./routes/index')
+const register = require("./routes/register");
+const login = require("./routes/login");
+const orders = require("./routes/orders");
+const stripe = require("./routes/stripe");
+const productsRoute = require("./routes/products");
 
 const app = express();
 
@@ -17,12 +21,15 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api", index);
+app.use("/api/register", register);
+app.use("/api/login", login);
+app.use("/api/orders", orders);
+app.use("/api/stripe", stripe);
+app.use("/api/products", productsRoute);
 
 app.get("/", (req, res) => {
   res.send("Welcome our to online shop API...");
 });
-
 
 const uri = process.env.DB_URI
 const port = process.env.PORT || 5000;
