@@ -1,11 +1,7 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-const register = require("./routes/register");
-const login = require("./routes/login");
-const orders = require("./routes/orders");
-const stripe = require("./routes/stripe");
-const productsRoute = require("./routes/products");
+const index = require('/routes/index')
 
 const app = express();
 
@@ -21,11 +17,7 @@ app.use((req, res, next) => {
   next();
 });
 
-app.use("/api/register", register);
-app.use("/api/login", login);
-app.use("/api/orders", orders);
-app.use("/api/stripe", stripe);
-app.use("/api/products", productsRoute);
+app.use("/api/register", index);
 
 app.get("/", (req, res) => {
   res.send("Welcome our to online shop API...");
